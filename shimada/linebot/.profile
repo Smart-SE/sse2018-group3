@@ -1,0 +1,2 @@
+export LINE_CHANNEL_SECRET=xxxxxxxx
+export LINE_CHANNEL_ACCESS_TOKEN=xxxxxxxx

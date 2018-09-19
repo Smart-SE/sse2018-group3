@@ -26,7 +26,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage, StickerSendMessage
+    MessageEvent, TextMessage, TextSendMessage, StickerSendMessage, ImageSendMessage
 )
 
 app = Flask(__name__)
@@ -45,7 +45,7 @@ line_bot_api = LineBotApi(channel_access_token)
 parser = WebhookParser(channel_secret)
 
 
-@app.route("/callback", methods=['POST'])
+@app.route("/", methods=['POST'])
 def callback():
     signature = request.headers['X-Line-Signature']
 
@@ -74,10 +74,21 @@ def callback():
     return 'OK'
 
 def set_reply_message(user_message):
+    from variable import NGROK_ADDRESS
     if user_message == "スタンプ":
         return StickerSendMessage(sticker_id=1, package_id=1)
+    elif user_message == '画像':
+        return ImageSendMessage(
+                    original_content_url='{address}/get_image'.format(address=NGROK_ADDRESS),
+                    preview_image_url='{address}/get_image'.format(address=NGROK_ADDRESS)
+                )
     else :
-        return  TextSendMessage(text="test")
+        return TextSendMessage(text="test")
+
+@app.route('/get_image')
+def get_image():
+    from flask import send_file
+    return send_file('sample.jpg', mimetype='image/jpg')
 
 if __name__ == "__main__":
     arg_parser = ArgumentParser(
