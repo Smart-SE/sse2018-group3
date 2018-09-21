@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 plt.style.use('ggplot')
 from datetime import datetime
+from PIL import Image
 
 #テスト用(CPU取得)
 import psutil
@@ -42,11 +43,11 @@ while i < 30:
     
     if i % 10 == 0:
         # figure
-        fig, ax = plt.subplots(figsize=(12,7))
+        fig, ax = plt.subplots(figsize=(2.4,2.4))
+        ax.xaxis.set_major_formatter(plt.NullFormatter())
         
         # plot
         ax.plot(x, y1, linestyle='-', color='b', label='ang')
-        #ax.plot(x, y2, linestyle='-', color='#e46409', label='悲しみ') 
         
         # x axis
         #plt.xlim([0 , 255]) #グラフの範囲
@@ -61,6 +62,11 @@ while i < 30:
 
         # save as png
         plt.savefig('figure_{0}.png'.format(i))
+        
+        # Convert jpeg
+        im = Image.open('figure_{0}.png'.format(i))
+        rgb_im = im.convert('RGB')
+        rgb_im.save('figure_{0}.jpg'.format(i),'JPEG')
         
 plt.close('all')
 
