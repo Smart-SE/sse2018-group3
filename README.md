@@ -7,6 +7,10 @@
 - ipad用 HDMI変換ケーブル　★大西
 
 
+## 発表
+- リーンキャンバス
+
+
 ## 連絡
 - 個人作業フォルダを用意しました。
 - 相談用Issueを用意しました。
@@ -23,6 +27,8 @@ https://github.com/Smart-SE/sse2018-group3/issues/14
 - RPi.GPIO 0.6.3
 - smbus2 0.2.1
 - ngrok 2.2.8
+- image 1.5.25
+- Pillow 5.2.0
 
 
 
