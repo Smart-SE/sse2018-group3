@@ -17,7 +17,6 @@ https://github.com/Smart-SE/sse2018-group3/issues/14
 - numpy 1.8.2
 - RPi.GPIO 0.6.3
 - smbus2 0.2.1
-
 - ngrok 2.2.8
 
 
