@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- 
-#“®ìŠm”F‚ğ‚¨Šè‚¢‚¢‚½‚µ‚Ü‚·B
-
 
 pulse = 0
 if pulse = 0:
