@@ -3,15 +3,22 @@ import diagnosis
 import radar_graph
 import line_graph
 
-anger = [100,52,33,44,55,16,47,38,39,100]
+import json
+
+jfile = open("sensor.json","r")
+sensor = json.load(jfile)
+
+print(sensor)
+
+anger_hist = sensor["hist"]
+anger_data = sensor["data"]
 diag_list = ["",""]
 
 
-print(anger)
 
-diagnosis.check(anger[0],diag_list)
+diagnosis.check(anger_data,diag_list)
 print(diag_list)
 
-radar_graph.create_radar_graph(anger[0])
-line_graph.create_line_graph(anger)
+radar_graph.create_radar_graph(anger_data)
+line_graph.create_line_graph(anger_hist)
 
