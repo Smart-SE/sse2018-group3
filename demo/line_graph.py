@@ -6,6 +6,7 @@ import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+import matplotlib.ticker as tck
 from PIL import Image
 
 
@@ -13,13 +14,14 @@ def create_line_graph(var_list):
     # figure
     fig = plt.figure(figsize=(2.4,2.2)) #サイズ設定
     fig.subplots_adjust(bottom=0.16, left=0.30) #余白設定
-
+    
     # graph
     ax = fig.add_subplot(1,1,1) #グラフ作成
     ax.set_xlabel("Time") #xラベル
     ax.set_ylabel("Angerlevel") #yラベル
-    ax.set_title('TimeSeriesGraph') #グラフタイトル
+    ax.set_title('Line Graph') #グラフタイトル
     ax.xaxis.set_major_formatter(plt.NullFormatter()) #x軸の値を非表示
+    ax.yaxis.set_major_locator(tck.MaxNLocator(integer=True)) # 目盛を整数にする
     ax.plot(var_list)
 
     # save as png
@@ -34,5 +36,5 @@ def create_line_graph(var_list):
 
 
 #variable
-x = [100,52,33,44,55,16,47,38,39,100]
-create_line_graph(x)
+#x = [100,52,33,44,55,16,47,38,39,100]
+#create_line_graph(x)
