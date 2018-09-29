@@ -16,6 +16,8 @@ def get_heartbeat():
     heartstatus = HEART_STATE_DOWN1
     heartcount = 0
     retcnt = 0
+    
+    plt.figure()
 
     for i in range(200):
         data = bus.read_i2c_block_data(0x2a, 0x00, 2)
