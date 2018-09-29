@@ -37,9 +37,9 @@ class RadarAxes(PolarAxes):
 def create_radar_graph(var):
 
     # 色変え設定
-    if var1 >= 180 : color = 'r'
-    elif var1 >= 120 : color = 'orange'
-    elif var1 < 120 : color = 'g'
+    if var >= 180 : color = 'r'
+    elif var >= 120 : color = 'orange'
+    elif var < 120 : color = 'g'
 
     rp(RadarAxes)
     
@@ -51,7 +51,7 @@ def create_radar_graph(var):
   # ラベル
     labels = ['Anger', 'Joy', 'Hapiness', 'Sad']
   # MAX値（分母）
-    rule_of_four = [160, 100, 100, 100]
+    rule_of_four = [255, 100, 100, 100]
   # 測定値
     desc = [var, 45, 60, 50]   #  ←！！！！ここの一番左に測定値を代入！！！！
     
