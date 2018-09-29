@@ -62,6 +62,7 @@ def create_radar_graph(var):
     ax = subplot(111, projection='radar')
     # ax.plot(theta, desc_rate, color='black') # 輪郭
     ax.fill(theta, desc_rate, facecolor=color)
+    plt.tight_layout()
     
     for patch in ax.patches:
         patch.set_alpha(0.5)
