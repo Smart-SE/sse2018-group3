@@ -32,6 +32,7 @@ def callback():
 
     jfile = open("sensor.json","r")
     sensor = json.load(jfile)
+    jfile.close()
 
     print(sensor)
 
