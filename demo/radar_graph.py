@@ -37,8 +37,9 @@ class RadarAxes(PolarAxes):
 def create_radar_graph(var):
 
     # 色変え設定
-    if var >= 123 : color = 'r'
-    else : color = 'b' 
+    if var1 >= 180 : color = 'r'
+    elif var1 >= 120 : color = 'orange'
+    elif var1 < 120 : color = 'g'
 
     rp(RadarAxes)
     
@@ -56,6 +57,7 @@ def create_radar_graph(var):
     
   # グラフ描写
     fig = plt.figure(figsize=(2.4,2.2)) # サイズ設定
+    fig.subplots_adjust(bottom=0.16) #余白設定
     desc_rate = [100*desc[i]/float(v) for (i,v) in enumerate(rule_of_four)]
     ax = subplot(111, projection='radar')
     # ax.plot(theta, desc_rate, color='black') # 輪郭
