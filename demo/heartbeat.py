@@ -17,7 +17,6 @@ def get_heartbeat():
     heartcount = 0
     retcnt = 0
     
-    plt.figure()
 
     for i in range(200):
         data = bus.read_i2c_block_data(0x2a, 0x00, 2)
@@ -49,7 +48,13 @@ def get_heartbeat():
 
     #print(heartbeat)
 
-    plt.plot(heartbeat)
+    fig = plt.figure(figsize=(2.4,2.2))
+    #fig.subplots_adjust(left=0.30)
+    ax = fig.add_subplot(1,1,1)
+    ax.set_title("heartbeat")
+    ax.xaxis.set_major_formatter(plt.NullFormatter())
+    ax.yaxis.set_major_formatter(plt.NullFormatter())
+    ax.plot(heartbeat)
     plt.savefig("heartbeat.png")
     return retcnt
 
