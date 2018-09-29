@@ -54,10 +54,11 @@ def callback():
 
     return response    
 
-@app.route('/get_image/<filename>')
-def get_image(filename):
+@app.route('/get_image/<filename>/<token>')
+def get_image(filename, token):
     from flask import send_file
     # print(filename)
+    filename = filename + '.jpg'
     return send_file(filename, mimetype='image/jpg')
 
 if __name__ == "__main__":

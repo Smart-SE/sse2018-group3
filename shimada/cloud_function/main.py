@@ -70,7 +70,7 @@ def set_reply_message(user_message):
     """
     送られたメッセージによって返答を変えるために利用
     """
-    if user_message == '嫁いまなにしてる':
+    if user_message == 'へい、あや':
         return create_buttons_template()
     elif user_message == "スタンプ":
         return create_stamp_message()
@@ -88,12 +88,12 @@ def create_buttons_template():
     # print(data[0])
     # print(data[1])
     return TemplateSendMessage(
-        alt_text='嫁いまなにしてる',
+        alt_text='感情衛生ひまわり',
         template=ButtonsTemplate(
             # thumbnail_image_url='https://storage.googleapis.com/smartse-team3/shipnaku_3.jpg',
             thumbnail_image_url='https://storage.googleapis.com/smartse-team3/{filename}'.format(filename=data[1]),
             # thumbnail_image_url='{address}/get_image'.format(address=NGROK_ADDRESS),
-            title='嫁いまなにしてる',
+            title='感情衛生ひまわり',
             text=data[0],
             actions=[
                 MessageAction(
@@ -118,9 +118,13 @@ def create_stamp_message():
 
 def create_image_message(filename):
     """画像"""
+    import secrets
+    token = secrets.token_hex()
     return ImageSendMessage(
-        original_content_url='{address}/get_image/{filename}.jpg'.format(address=NGROK_ADDRESS, filename=filename),
-        preview_image_url='{address}/get_image/{filename}.jpg'.format(address=NGROK_ADDRESS, filename=filename)
+        original_content_url='{address}/get_image/{filename}/{token}'
+            .format(address=NGROK_ADDRESS, filename=filename, token=token),
+        preview_image_url='{address}/get_image/{filename}/{token}'
+            .format(address=NGROK_ADDRESS, filename=filename, token=token)
         # original_content_url='https://storage.googleapis.com/smartse-team3/{filename}.jpg'.format(filename=filename),
         # preview_image_url='https://storage.googleapis.com/smartse-team3/{filename}.jpg'.format(filename=filename),
     )
