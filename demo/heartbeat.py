@@ -1,6 +1,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+from PIL import Image
 import smbus2
 import time
 
@@ -56,6 +57,14 @@ def get_heartbeat():
     ax.yaxis.set_major_formatter(plt.NullFormatter())
     ax.plot(heartbeat)
     plt.savefig("heartbeat.png")
+    
+    # Convert jpeg
+    im = Image.open('heartbeat.png')
+    rgb_im = im.convert('RGB')
+    rgb_im.save('heartbeat.jpg','JPEG')
+    
+    
+    
     return retcnt
 
 #b = get_heartbeat()
