@@ -49,7 +49,7 @@ def create_radar_graph(var):
     theta = 2*pi * linspace(0, 1, N+1)[:-1]
     theta += pi/2
   # ラベル
-    labels = ['Anger', 'Joy', 'Hapiness', 'Sad']
+    labels = ['Anger', 'Joy    ', 'Hapiness', '    Sad']
   # MAX値（分母）
     rule_of_four = [255, 100, 100, 100]
   # 測定値
