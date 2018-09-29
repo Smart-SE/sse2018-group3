@@ -52,14 +52,14 @@ def callback():
         mimetype='application/json'
     )
 
-    return response    
+    return response
 
 @app.route('/get_image/<filename>/<token>')
 def get_image(filename, token):
     from flask import send_file
     # print(filename)
-    filename = filename + '.jpg'
-    return send_file(filename, mimetype='image/jpg')
+    # filename = filename + '.jpg'
+    return send_file(filename + '.jpg', mimetype='image/jpg')
 
 if __name__ == "__main__":
     arg_parser = ArgumentParser(
