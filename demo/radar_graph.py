@@ -49,15 +49,15 @@ def create_radar_graph(var):
     theta = 2*pi * linspace(0, 1, N+1)[:-1]
     theta += pi/2
   # ラベル
-    labels = ['Anger', 'Joy    ', 'Hapiness', '    Sad']
+    labels = ['Anger', 'Joy        ', 'Hapiness', '   Sad']
   # MAX値（分母）
     rule_of_four = [255, 100, 100, 100]
   # 測定値
     desc = [var, 45, 60, 50]   #  ←！！！！ここの一番左に測定値を代入！！！！
     
   # グラフ描写
-    fig = plt.figure(figsize=(2.4,2.2)) # サイズ設定
-    fig.subplots_adjust(left=0.20, bottom=0.15, right=0.80, top=0.85) #余白設定
+    fig = plt.figure(figsize=(2.4,2.4)) # サイズ設定
+    fig.subplots_adjust(left=0.28, bottom=0.15, right=0.72, top=0.85) #余白設定
     desc_rate = [100*desc[i]/float(v) for (i,v) in enumerate(rule_of_four)]
     ax = subplot(111, projection='radar')
     # ax.plot(theta, desc_rate, color='black') # 輪郭
