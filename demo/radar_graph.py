@@ -68,7 +68,7 @@ def create_radar_graph(var):
 
   # ％ラベル刻み設定
     ax.set_varlabels(theta,labels)
-    rgrids((50,75,100))
+    rgrids((50,100))
 
     grid(True)
     
