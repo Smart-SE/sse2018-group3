@@ -53,6 +53,12 @@ def callback():
 
     return response    
 
+@app.route('/get_image/<filename>')
+def get_image(filename):
+    from flask import send_file
+    # print(filename)
+    return send_file(filename, mimetype='image/jpg')
+
 if __name__ == "__main__":
     arg_parser = ArgumentParser(
         usage='Usage: python ' + __file__ + ' [--port <port>] [--help]'
